@@ -11,8 +11,12 @@
       <%= link_to 'Tibblers', root_path, class: 'navbar-brand' %>
     </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Register', register_path %></li>
-        <li><%= link_to 'Log in', login_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Log out', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Register', register_path %></li>
+          <li><%= link_to 'Log in', login_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
