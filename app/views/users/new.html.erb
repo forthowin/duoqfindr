@@ -1,0 +1,26 @@
+<h3> Registration page</h3>
+<div class='well'>
+  <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages', obj: @user %>
+    <div class='form-group'>
+    <%= f.label :username %><br/>
+    <%= f.text_field :username %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :role, 'Main role' %><br/>
+      <%= f.select :role, [['Top', 'top'], ['Mid', 'mid'], ['Jungle', 'jungle'], ['ADC', 'adc'], ['Support', 'support']] %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :tier %><br/>
+      <%= f.select :tier, [['Bronze', 'bronze'], ['Silver', 'silver'], ['Gold', 'gold'], ['Platinum', 'platinum'],
+                          ['Diamond', 'diamond'], ['Master', 'master'], ['Challenger', 'challenger']]%>
+    </div>
+    <div class='form-group'>
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+    </div>
+    <div class='form-group'>
+      <%= f.submit 'Register', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
