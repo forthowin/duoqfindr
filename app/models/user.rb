@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_messageable
+
   geocoded_by :ip_address
 
   has_secure_password validations: false

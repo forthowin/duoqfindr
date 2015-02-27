@@ -6,3 +6,14 @@
     <li class="list-group-item">Tier: <%= @user.tier.capitalize %></li>
   </ul>
 </div>
+
+<h5>Send <%= @user.username %> a message!</h5>
+<div class='well'>
+  <%= form_tag({controller: 'messages', action: 'create', username: @user.username}, method: 'post') do %>
+    <%= label_tag :subject %>
+    <%= text_field_tag :subject %>
+    <%= label_tag :body %>
+    <%= text_area_tag :body %>
+    <%= submit_tag 'Send' %>
+  <% end %>
+</div>

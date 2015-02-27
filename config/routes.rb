@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post '/search', to: 'searches#show'
 
   resources :users, except: [:index, :destroy]
+  resources :messages
 
 end
