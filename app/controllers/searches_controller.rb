@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  before_action :require_user
 
   def edit
   end

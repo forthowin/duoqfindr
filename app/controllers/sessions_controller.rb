@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :require_user, only: [:destroy]
+
   def new
   end
 
@@ -6,6 +8,11 @@ class SessionsController < ApplicationController
     user = User.find_by username: params[:username]
 
     if user and user.authenticate(params[:password])
+      if user.ip_address != request.ip
+        user.ip_address = request.ip
+        binding.pry
+        user.save
+      end
       session[:user_id] = user.id
       flash[:notice] = "You have successfully log in"
       redirect_to root_path
