@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -41,5 +42,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :role, :tier, :password)
+  end
+
+  def require_same_user
+    if !logged_in? and current_user != @user
+      flash[:danger] = "You can't do that."
+      redirect_to root_path
+    end
   end
 end

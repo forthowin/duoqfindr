@@ -1,4 +1,6 @@
 class ConversationsController < ApplicationController
+  before_action :require_user
+  
   def index
     @mailbox = current_user.mailbox
   end

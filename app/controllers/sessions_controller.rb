@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by username: params[:username]
 
     if user and user.authenticate(params[:password])
-      if user.ip_address != request.ip
+      if user.ip_address != request.ip #update ip address
         user.ip_address = request.ip
         user.save
       end
