@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     if user and user.authenticate(params[:password])
       if user.ip_address != request.ip
         user.ip_address = request.ip
-        binding.pry
         user.save
       end
       session[:user_id] = user.id

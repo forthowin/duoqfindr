@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   post '/search', to: 'searches#show'
 
   resources :users, except: [:index, :destroy]
-  resources :messages
+  resources :messages do
+    member do
+      post :reply
+    end
+  end
+  resources :conversations
 
 end
