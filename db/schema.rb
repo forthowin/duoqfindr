@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227042540) do
+ActiveRecord::Schema.define(version: 20150301050418) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150227042540) do
     t.float  "latitude"
     t.float  "longitude"
     t.string "ip_address"
+    t.string "slug"
   end
 
 end
