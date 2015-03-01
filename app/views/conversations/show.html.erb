@@ -16,9 +16,9 @@
   </div>
 </div>
 
-<h5>Send a reply!</h5>
 <%= form_tag({controller: 'messages', action: 'reply', id: @conversation.id}, method: 'post') do %>
-  <%= label_tag :reply_body %>
-  <%= text_area_tag :reply_body %>
+  <div class='control-group'>
+    <%= text_area_tag :reply_body, nil, cols: 25, rows: 5 %>
+  </div>
   <%= submit_tag 'Reply' %>
 <% end %>
