@@ -10,10 +10,14 @@
 <h5>Send <%= @user.username %> a message!</h5>
 <div class='well'>
   <%= form_tag({controller: 'messages', action: 'create', username: @user.username}, method: 'post') do %>
-    <%= label_tag :subject %>
-    <%= text_field_tag :subject %>
-    <%= label_tag :body %>
-    <%= text_area_tag :body %>
+    <div class='form-group'>
+      <%= label_tag :subject %><br/>
+      <%= text_field_tag :subject %>
+    </div>
+      <div class='form-group'>
+      <%= label_tag :body %><br/>
+      <%= text_area_tag :body, nil, cols: 30, rows: 5 %>
+    </div>
     <%= submit_tag 'Send' %>
   <% end %>
 </div>

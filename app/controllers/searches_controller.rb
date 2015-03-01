@@ -1,11 +1,14 @@
 class SearchesController < ApplicationController
+  MIN_RADIUS = 1
+  MAX_RADIUS = 150
+
   before_action :require_user
 
   def show
-    if params[:radius] and params[:radius].to_i >= 1 and params[:radius].to_i <= 150
+    if params[:radius] and params[:radius].to_i >= MIN_RADIUS and params[:radius].to_i <= MAX_RADIUS
       @users = current_user.nearbys(params[:radius].to_i)
-    elsif params[:radius] and (params[:radius].to_i < 1 or params[:radius].to_i > 150)
-      flash[:danger] = "Value must be between 1-150."
+    elsif params[:radius] and (params[:radius].to_i < MIN_RADIUS or params[:radius].to_i > MAX_RADIUS)
+      flash.now[:danger] = "Value must be between 1-150."
       render :show
     end
   end

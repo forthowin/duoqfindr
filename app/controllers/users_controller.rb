@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if !logged_in? and current_user != @user
+    if current_user != @user
       flash[:danger] = "You can't do that."
       redirect_to root_path
     end
