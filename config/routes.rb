@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/register', to: 'users#new'
-  post '/search', to: 'searches#show'
+  get '/search', to: 'searches#show'
+  post '/search', to: 'searches#update'
 
   resources :users, except: [:index, :destroy]
   resources :messages, only: [:create] do
