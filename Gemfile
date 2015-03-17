@@ -46,6 +46,13 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'sqlite3'
+  gem 'faker'
+  gem 'fabrication'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :production do
