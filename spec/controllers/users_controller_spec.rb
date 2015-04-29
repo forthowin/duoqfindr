@@ -59,14 +59,78 @@ describe UsersController do
   end
 
   describe 'GET edit' do
+    let(:bob) { Fabricate(:user) }
     it 'finds the user by the slug if the user is the same' do
-      bob = Fabricate(:user)
       set_current_user(bob)
       get :edit, id: bob.slug
       expect(assigns(:user)).to eq bob
     end
 
-    it 'redirects to the root path if the user is different'
-    it 'redirects to the sign in page for unauthorized user'
+    it 'redirects to the root path if the user is different' do
+      set_current_user
+      get :edit, id: bob.slug
+      expect(response).to redirect_to root_path
+    end
+
+    it 'redirects to the sign in page for unauthorized user' do
+      get :edit, id: bob.slug
+      expect(response).to redirect_to login_path
+    end
+  end
+
+  describe 'POST update' do
+    context 'with valid inputs' do
+      let(:bob) { Fabricate(:user) }
+
+      before do
+        set_current_user(bob)
+        patch :update, id: bob.slug, user: { role: 'Jungle', tier: 'Silver' }
+      end
+
+      it 'updates the user' do
+        expect(bob.reload.role).to eq('Jungle')
+        expect(bob.reload.tier).to eq('Silver')
+      end
+
+      it 'sets the flash notice message' do
+        expect(flash[:notice]).to be_present
+      end
+
+      it 'redirects to the show page' do
+        expect(response).to redirect_to user_path bob
+      end
+    end
+
+    context 'with invalid inputs' do
+      let(:bob) { Fabricate(:user) }
+
+      before do
+        set_current_user(bob)
+        patch :update, id: bob.slug, user: { role: 'Jungle', tier: 'Silver', password: 'a' }
+      end
+
+      it 'assigns an instance of user' do
+        expect(assigns(:user)).to be_an_instance_of(User)
+      end
+
+      it 'renders the edit page' do
+        expect(response).to render_template :edit
+      end
+    end
+
+    context 'for unauthorized users' do
+      it 'redirects to the root path if the user is different' do
+        bob = Fabricate(:user)
+        set_current_user
+        patch :update, id: bob.slug, user: { role: 'Jungle', tier: 'Silver' }
+        expect(response).to redirect_to root_path
+      end
+
+      it 'redirects to the sign in page if the user is not signed in' do
+        bob = Fabricate(:user)
+        patch :update, id: bob.slug, user: { role: 'Jungle', tier: 'Silver' }
+        expect(response).to redirect_to login_path
+      end
+    end
   end
 end
