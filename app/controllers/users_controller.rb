@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "You have successfully registered."
-      redirect_to root_path
+      redirect_to edit_user_path @user
     else
       render :new
     end
