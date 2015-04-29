@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       end
       session[:user_id] = user.id
       flash[:notice] = "You have successfully log in"
-      redirect_to root_path
+      redirect_to search_path
     else
       flash.now[:danger] = "Wrong username or password"
       render :new
