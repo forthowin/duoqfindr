@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
     if params[:radius].to_i.between?(MIN_RADIUS, MAX_RADIUS)
       @users = current_user.nearbys(params[:radius].to_i)
     else
-      flash.now[:danger] = "Value must be between 1-150."
+      flash.now[:danger] = "Value must be between #{MIN_RADIUS}-#{MAX_RADIUS}."
     end
     render :show
   end
