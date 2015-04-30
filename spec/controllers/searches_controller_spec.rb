@@ -15,7 +15,7 @@ describe SearchesController do
 
     it 'sets the flash danger message for invalid inputs' do
       set_current_user
-      post :update, radius: "100"
+      post :update, radius: "160"
       expect(flash[:danger]).to be_present
     end
 
