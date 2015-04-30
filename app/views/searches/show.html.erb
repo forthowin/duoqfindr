@@ -1,7 +1,7 @@
 <%= render '/shared/content_title', title: 'Search for players near you!' %>
 
 <%= form_tag '/search' do %>
-  <%= text_field_tag :radius, nil, placeholder: '1-150 mile radius' %>
+  <%= text_field_tag :radius, nil, placeholder: "#{SearchesController::MIN_RADIUS}-#{SearchesController::MAX_RADIUS} mile radius" %>
   <%= submit_tag 'Search', class: 'btn btn-primary' %>
 <% end %>
 <hr/>
