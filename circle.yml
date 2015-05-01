@@ -1,0 +1,9 @@
+deployment:
+  production:
+    branch: master
+    commands:
+      - heroku maintenance:on --app cryptic-spire-1370
+      - heroku pg:backups capture --app cryptic-spire-1370
+      - git push git@heroku.com:cryptic-spire-1370.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app cryptic-spire-1370
+      - heroku maintenance:off --app cryptic-spire-1370
