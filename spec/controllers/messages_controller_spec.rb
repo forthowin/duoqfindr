@@ -31,14 +31,20 @@ describe MessagesController do
       before do
         request.env["HTTP_REFERER"] = "/users/#{tim.slug}"
         set_current_user(bob)
-        post :create, username: tim.username, body: nil, subject: nil
       end
 
       it 'sets the flash danger message' do
+        post :create, username: tim.username, body: nil, subject: nil
         expect(flash[:danger]).to be_present
       end
 
       it 'redirects back to the previous page' do
+        post :create, username: tim.username, body: nil, subject: nil
+        expect(response).to redirect_to user_path(tim)
+      end
+
+      it 'redirects back to the previous page if the user could not be found' do
+        post :create, username: nil, body: nil, subject: nil
         expect(response).to redirect_to user_path(tim)
       end
     end
