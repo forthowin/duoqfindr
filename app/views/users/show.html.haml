@@ -9,14 +9,16 @@
     %li(class="list-group-item")
       Tier: 
       = @user.tier.capitalize
+%hr
 
 %h5
   Send
   = @user.username 
   a message!
-.well
-  = bootstrap_form_tag(url: messages_path, username: @user.username) do |f|
-    = f.text_field :subject
-    = f.text_area :body, label_col: "col-sm-2", control_col: "col-sm-10"
-    = f.hidden_field :username, value: @user.username
-    = f.primary 'Send'
+= bootstrap_form_tag(url: messages_path, username: @user.username) do |f|
+  .form-group
+    .col-sm-6
+      = f.text_field :subject
+      = f.text_area :body, label_col: "col-sm-2", control_col: "col-sm-10"
+      = f.hidden_field :username, value: @user.username
+      = f.primary 'Send'
