@@ -11,6 +11,7 @@ feature "User logs in" do
     click_button 'Login'
 
     expect(page).to have_content bob.username
+    expect(page).to have_content 'You have successfully log in'
   end
 
   scenario "with invalid account" do
