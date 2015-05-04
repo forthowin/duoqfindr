@@ -22,5 +22,6 @@ feature "User logs in" do
     click_button 'Login'
 
     expect(page).to have_content 'Login Page'
+    expect(page).to have_content 'Wrong username or password'
   end
 end
