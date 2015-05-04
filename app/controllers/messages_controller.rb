@@ -7,10 +7,13 @@ class MessagesController < ApplicationController
     if params[:body].blank? or params[:subject].blank?
       flash[:danger] = "Subject and body must be present."
       redirect_to :back
-    else
+    elsif user
       current_user.send_message(user, params[:body], params[:subject])
       flash[:notice] = "Message sent!"
       redirect_to user_path(user)
+    else
+      flash[:danger] = "Cannot find user!"
+      redirect_to :back
     end
   end
 
