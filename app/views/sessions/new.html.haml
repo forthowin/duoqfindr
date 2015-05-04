@@ -1,0 +1,8 @@
+= render '/shared/content_title', title: 'Login Page'
+
+= bootstrap_form_tag url: login_path do |f|
+  .form-group
+    .col-sm-6
+      = f.text_field :username
+      = f.password_field :password
+      = f.primary 'Login'
