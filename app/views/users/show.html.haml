@@ -1,0 +1,22 @@
+= render '/shared/content_title', title: "#{@user.username}'s Profile"
+
+.well
+  %ul(class="list-group")
+
+    %li(class="list-group-item")
+      Main Role: 
+      = @user.role.capitalize
+    %li(class="list-group-item")
+      Tier: 
+      = @user.tier.capitalize
+
+%h5
+  Send
+  = @user.username 
+  a message!
+.well
+  = bootstrap_form_tag(url: messages_path, username: @user.username) do |f|
+    = f.text_field :subject
+    = f.text_area :body, label_col: "col-sm-2", control_col: "col-sm-10"
+    = f.hidden_field :username, value: @user.username
+    = f.primary 'Send'
