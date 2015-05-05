@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
   get '/search', to: 'searches#show'
   post '/search', to: 'searches#update'
+  get '/about', to: 'static_pages#about'
 
   resources :users, except: [:index, :destroy]
   resources :messages, only: [:create] do
