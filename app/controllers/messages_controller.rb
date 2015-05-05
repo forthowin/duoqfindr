@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       redirect_to :back
     elsif user
       current_user.send_message(user, params[:body], params[:subject])
-      flash[:notice] = "Message sent!"
+      flash[:success] = "Message sent!"
       redirect_to user_path(user)
     else
       flash[:danger] = "Cannot find user!"
@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
       redirect_to :back
     else
       current_user.reply_to_conversation(conversation, params[:reply_body])
-      flash[:notice] = "Message sent!"
+      flash[:success] = "Message sent!"
       redirect_to conversation_path(conversation)
     end
   end

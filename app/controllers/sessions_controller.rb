@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         user.save
       end
       session[:user_id] = user.id
-      flash[:notice] = "You have successfully log in"
+      flash[:success] = "You have successfully log in"
       redirect_to search_path
     else
       flash.now[:danger] = "Wrong username or password"
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "You have successfully signed out"
+    flash[:success] = "You have successfully signed out"
     redirect_to root_path
   end
 end

@@ -9,10 +9,10 @@ describe SessionsController do
         expect(bob.reload.ip_address).not_to eq('123.123.1.1')
       end
 
-      it 'sets the flash notice message' do
+      it 'sets the flash success message' do
         bob = Fabricate(:user)
         post :create, username: bob.username, password: bob.password
-        expect(flash[:notice]).to be_present
+        expect(flash[:success]).to be_present
       end
 
       it 'redirects to the root path' do
@@ -44,10 +44,10 @@ describe SessionsController do
       expect(session[:user_id]).to be_nil
     end
 
-    it 'sets the flash notice message' do
+    it 'sets the flash success message' do
       set_current_user
       get :destroy
-      expect(flash[:notice]).to be_present
+      expect(flash[:success]).to be_present
     end
 
     it 'redirects to the root path' do

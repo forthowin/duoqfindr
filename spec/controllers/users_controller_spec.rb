@@ -20,8 +20,8 @@ describe UsersController do
         expect(response).to redirect_to edit_user_path(User.first)
       end
 
-      it 'sets the flash notice message' do
-        expect(flash[:notice]).to be_present
+      it 'sets the flash success message' do
+        expect(flash[:success]).to be_present
       end
 
       it 'saves the user id into the session' do
@@ -92,8 +92,8 @@ describe UsersController do
         expect(bob.reload.tier).to eq('Silver')
       end
 
-      it 'sets the flash notice message' do
-        expect(flash[:notice]).to be_present
+      it 'sets the flash success message' do
+        expect(flash[:success]).to be_present
       end
 
       it 'redirects to the show page' do

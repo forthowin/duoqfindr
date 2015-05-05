@@ -15,8 +15,8 @@ describe MessagesController do
         expect(response).to redirect_to user_path tim
       end
 
-      it 'sets the flash notice message' do
-        expect(flash[:notice]).to be_present
+      it 'sets the flash success message' do
+        expect(flash[:success]).to be_present
       end
 
       it 'sends the message to the user' do
@@ -65,8 +65,8 @@ describe MessagesController do
         expect(response).to redirect_to conversation_path tim.mailbox.conversations.first
       end
 
-      it 'sets the flash notice message' do
-        expect(flash[:notice]).to be_present
+      it 'sets the flash success message' do
+        expect(flash[:success]).to be_present
       end
 
       it 'sends the message to the user' do

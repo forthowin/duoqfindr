@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user.ip_address = request.ip
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = 'You have successfully registered.'
+      flash[:success] = 'You have successfully registered.'
       redirect_to edit_user_path @user
     else
       render :new
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = 'Your have successfully updated your profile.'
+      flash[:success] = 'Your have successfully updated your profile.'
       redirect_to user_path(@user)
     else
       render :edit
