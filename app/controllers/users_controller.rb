@@ -34,6 +34,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def token
+    current_user.generate_token!
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def set_user
