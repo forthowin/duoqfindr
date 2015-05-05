@@ -17,6 +17,7 @@ describe User do
       expect(bob.account_token).to be_present
     end
   end
+  
   describe '#generate_slug' do
     it 'downcase all the characters' do
       bob = Fabricate(:user, username: 'ASDFG')
