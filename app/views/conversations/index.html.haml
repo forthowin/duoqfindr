@@ -11,16 +11,20 @@
     %tr
       %td Subject
       %td Sender
+      %td Time
     - @mailbox.inbox.each do |conv|
       %tr
         %td= link_to conv.subject, conversation_path(conv)
         %td= link_to conv.last_sender.username,  user_path(conv.last_sender)
+        %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"
 - elsif params[:tab] == 'outbox'
   %table(class='table table-striped')
     %tr
       %td Subject
       %td Receiver
+      %td Time
     - @mailbox.sentbox.each do |conv|
       %tr
         %td= link_to conv.subject, conversation_path(conv)
         %td= link_to conv.recipients.first.username,  user_path(conv.recipients.first)
+        %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"
