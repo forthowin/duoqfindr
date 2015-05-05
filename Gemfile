@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'mailboxer'
 gem 'nokogiri'
 gem 'haml'
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
