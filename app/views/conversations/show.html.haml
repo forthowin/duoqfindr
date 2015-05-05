@@ -20,5 +20,5 @@
 
 = form_tag({controller: 'messages', action: 'reply', id: @conversation.id}, method: 'post') do
   .control-group
-    = text_area_tag :reply_body, nil, cols: 25, rows: 5
-  = submit_tag 'Reply'
+    = text_area_tag :reply_body, nil, cols: 50, rows: 5
+  = submit_tag 'Reply', class: 'btn btn-primary'
