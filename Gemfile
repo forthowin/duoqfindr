@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
 end
 
 group :production do
