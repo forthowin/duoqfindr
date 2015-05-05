@@ -6,6 +6,11 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.mailbox.conversations.find(params[:id])
+    begin
+      @conversation = current_user.mailbox.conversations.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:danger] = 'Could not find conversation'
+      redirect_to conversations_path
+    end
   end
 end
