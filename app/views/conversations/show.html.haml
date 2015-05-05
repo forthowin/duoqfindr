@@ -1,0 +1,24 @@
+= render '/shared/content_title', title: 'Conversation'
+ 
+.panel.panel-default
+  .panel-heading
+    %strong Subject: 
+    = @conversation.subject
+  .panel-body
+    .messages
+      - @conversation.receipts_for(current_user).each do |receipt|
+        - message = receipt.message
+        .well
+          = message.body
+          %br
+          %br
+          .small
+            From 
+            = link_to message.sender.username, message.sender
+            on
+            = message.created_at.in_time_zone(Time.zone).strftime("%-d %B %Y, %H:%M:%S %Z")
+
+= form_tag({controller: 'messages', action: 'reply', id: @conversation.id}, method: 'post') do
+  .control-group
+    = text_area_tag :reply_body, nil, cols: 25, rows: 5
+  = submit_tag 'Reply'
