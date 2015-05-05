@@ -1,0 +1,26 @@
+= render '/shared/content_title', title: 'Mailbox'
+
+%ul(class='nav nav-tabs')
+  %li(class="= 'active' if params[:tab].nil? or params[:tab] == 'inbox'")
+    = link_to "Inbox", conversations_path(tab: 'inbox')
+  %li(class="= 'active' if params[:tab] == 'outbox'")
+    = link_to "outbox", conversations_path(tab: 'outbox')
+
+- if params[:tab].nil? or params[:tab] == 'inbox'
+  %table(class='table table-striped')
+    %tr
+      %td Subject
+      %td Sender
+    - @mailbox.inbox.each do |conv|
+      %tr
+        %td= link_to conv.subject, conversation_path(conv)
+        %td= link_to conv.last_sender.username,  user_path(conv.last_sender)
+- elsif params[:tab] == 'outbox'
+  %table(class='table table-striped')
+    %tr
+      %td Subject
+      %td Receiver
+    - @mailbox.sentbox.each do |conv|
+      %tr
+        %td= link_to conv.subject, conversation_path(conv)
+        %td= link_to conv.recipients.first.username,  user_path(conv.recipients.first)
