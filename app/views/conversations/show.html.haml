@@ -15,8 +15,7 @@
           .small
             From 
             = link_to message.sender.username, message.sender
-            on
-            = message.created_at.in_time_zone(Time.zone).strftime("%-d %B %Y, %H:%M:%S %Z")
+            = distance_of_time_in_words(Time.now, message.created_at) + " ago"
 
 = form_tag({controller: 'messages', action: 'reply', id: @conversation.id}, method: 'post') do
   .control-group
