@@ -9,6 +9,14 @@ describe User do
   it { should allow_value("", nil).for(:password).on(:update) }
   it { should have_secure_password }
 
+
+  describe '#generate_token!' do
+    it 'saves a randomly generated token into the user token' do
+      bob = Fabricate(:user)
+      bob.generate_token!
+      expect(bob.account_token).to be_present
+    end
+  end
   describe '#generate_slug' do
     it 'downcase all the characters' do
       bob = Fabricate(:user, username: 'ASDFG')
