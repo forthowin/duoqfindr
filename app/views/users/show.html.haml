@@ -1,14 +1,13 @@
 = render '/shared/content_title', title: "#{@user.username}'s Profile"
 
-.well
-  %ul(class="list-group")
+%ul(class="list-group")
 
-    %li(class="list-group-item")
-      Main Role: 
-      = @user.role.capitalize
-    %li(class="list-group-item")
-      Tier: 
-      = @user.tier.capitalize
+  %li(class="list-group-item")
+    Main Role: 
+    = @user.role.capitalize
+  %li(class="list-group-item")
+    Tier: 
+    = @user.tier.capitalize
 %hr
 
 %h5
