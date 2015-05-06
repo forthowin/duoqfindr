@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User do
   it { should validate_presence_of :username }
   it { should validate_uniqueness_of :username }
-  it { should validate_length_of(:username).is_at_least(3) }
+  it { should validate_length_of(:username).is_at_least(2) }
   it { should validate_length_of(:password).is_at_least(5).on(:create) }
   it { should validate_presence_of(:password).on(:create) }
   it { should allow_value("", nil).for(:password).on(:update) }
