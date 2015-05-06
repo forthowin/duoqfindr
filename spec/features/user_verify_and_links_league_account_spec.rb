@@ -8,6 +8,8 @@ feature 'User verify their league account and update their profile', js: true do
     visit edit_user_path(bob)
 
     click_button 'Generate Token'
+    find('#token').visible?
+    
     token = '3C754E62'
     bob.update_column(:account_token, token)
 
