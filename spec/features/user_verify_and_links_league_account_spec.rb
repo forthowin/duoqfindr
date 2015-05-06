@@ -19,7 +19,7 @@ feature 'User verify their league account and update their profile', js: true do
     expect(page).not_to have_content 'Generate Token'
   end
 
-  scenario 'with incorrect info' do
+  scenario 'with mismatch token' do
     bob = Fabricate(:user)
     sign_in(bob)
 
@@ -32,5 +32,20 @@ feature 'User verify their league account and update their profile', js: true do
     click_button 'Verify Account'
 
     expect(page).to have_content 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
+  end
+
+  scenario 'with invalid summoner name' do
+    bob = Fabricate(:user)
+    sign_in(bob)
+
+    visit edit_user_path(bob)
+
+    click_button 'Generate Token'
+
+    fill_in 'Summoner Name', with: 'forthowingggggg'
+    select 'na', from: '_region'
+    click_button 'Verify Account'
+
+    expect(page).to have_content '404 Not Found'
   end
 end
