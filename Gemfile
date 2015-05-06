@@ -35,6 +35,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
 end
