@@ -1,9 +1,9 @@
 module RiotApi
   class Summoner
-    attr_accessor :response, :error_message
+    attr_accessor :data, :error_message
 
     def initialize(options={})
-      @response = options[:response]
+      @data = options[:response]
       @error_message = options[:error_message]
     end
 
@@ -26,15 +26,15 @@ module RiotApi
     end
 
     def successful?
-      response.present?
+      data.present?
     end
   end
 
   class League
-    attr_accessor :response, :error_message
+    attr_accessor :data, :error_message
 
     def initialize(options={})
-      @response = options[:response]
+      @data = options[:response]
       @error_message = options[:error_message]
     end
 
@@ -48,7 +48,7 @@ module RiotApi
     end
 
     def successful?
-      response.present?
+      data.present?
     end
   end
 end

@@ -27,20 +27,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 19:12:01 GMT
+      - Thu, 07 May 2015 21:40:10 GMT
       Server:
-      - Jetty(9.1.2.v20140210)
+      - Jetty(9.1.5.v20140505)
       Vary:
       - Accept-Encoding, User-Agent
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0oTPR4DSk8KV1oEOkwSERxUT1IbCBlWUAIEBSdLV04dUxRAWQ4NBwQGXFcIV1JQUgEDWUQ+
+      - PxQFWFFSDwQTVVdUBAgPUkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMB0UVZE1OCRoGb0oTPR4DSk8KV1oEOkwSERxUT1IbCRlfVQADBydLV04dUxRAC1kFCgBXXVhUBwdQVQYDV0Q+
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"betongjocke":{"id":19708052,"name":"betongJocke","profileIconId":552,"summonerLevel":30,"revisionDate":1431025737000}}'
+      string: '{"betongjocke":{"id":19708052,"name":"betongJocke","profileIconId":552,"summonerLevel":30,"revisionDate":1431030231000}}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 19:12:01 GMT
+  recorded_at: Thu, 07 May 2015 21:40:11 GMT
 recorded_with: VCR 2.9.3

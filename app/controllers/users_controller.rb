@@ -21,10 +21,10 @@ class UsersController < ApplicationController
 
   def show
     if @user.summoner_id.present? && Rails.cache.fetch(@user.summoner_id).nil?
-      summoner_data = RiotApi::League.by_summoner_entry(@user.summoner_id, @user.region)
-      if summoner_data.successful?
+      league = RiotApi::League.by_summoner_entry(@user.summoner_id, @user.region)
+      if league.successful?
         Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
-          summoner_data.response[@user.summoner_id.to_s].first
+          league.data[@user.summoner_id.to_s].first
         end
       end
     end
@@ -51,21 +51,21 @@ class UsersController < ApplicationController
   end
 
   def link_account
-    summoner_data = RiotApi::Summoner.by_name(params[:summoner_name], params[:region])
-    if summoner_data.successful?
+    summoner = RiotApi::Summoner.by_name(params[:summoner_name], params[:region])
+    if summoner.successful?
       normalized_summoner_name = params[:summoner_name].downcase.gsub(/\s+/,"")
-      summoner_id = summoner_data.response[normalized_summoner_name]['id']
+      summoner_id = summoner.data[normalized_summoner_name]['id']
 
-      runes_pages = RiotApi::Summoner.runes(summoner_id, params[:region])
+      rune_pages = RiotApi::Summoner.runes(summoner_id, params[:region])
 
-      if current_user.account_token == runes_pages.response[summoner_id.to_s]['pages'].first['name']
-        current_user.update(summoner_id: summoner_data.response[params[:summoner_name]]['id'], region: params[:region])
+      if current_user.account_token == rune_pages.data[summoner_id.to_s]['pages'].first['name']
+        current_user.update(summoner_id: summoner.data[params[:summoner_name]]['id'], region: params[:region])
         flash[:success] = 'Your account was linked successfully!'
       else
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
       end
     else
-      flash[:danger] = summoner_data.error_message || runes_pages.error_message
+      flash[:danger] = summoner.error_message || rune_pages.error_message
     end
     redirect_to :back
   end
