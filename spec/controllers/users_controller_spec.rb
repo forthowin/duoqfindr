@@ -51,10 +51,45 @@ describe UsersController do
   end
 
   describe 'GET show' do
-    it 'finds the user by the slug' do
+    it 'redirects to the login page for unauthorized users' do
       bob = Fabricate(:user)
       get :show, id: bob.slug
+      expect(response).to redirect_to login_path
+    end
+
+    it 'finds the user by the slug' do
+      bob = Fabricate(:user)
+      session[:user_id] = bob.id
+      get :show, id: bob.slug
       expect(assigns(:user)).to eq bob
+    end
+
+    it 'caches the summoner data if it is not cache yet' do
+      data = {"23472148" => [
+        {
+          "queue" => "RANKED_SOLO_5x5",
+          "name" => "Jarvan IV's Elementalists",
+          "entries" => [{
+             "leaguePoints" => 67,
+             "isFreshBlood" => false,
+             "isHotStreak" => false,
+             "division" => "IV",
+             "isInactive" => false,
+             "isVeteran" => true,
+             "losses" => 88,
+             "playerOrTeamName" => "all3nvan",
+             "playerOrTeamId" => "23472148",
+             "wins" => 77
+          }],
+          "tier" => "PLATINUM"
+          }
+        ]}
+
+      bob = Fabricate(:user, summoner_id: 23472148)
+      session[:user_id] = bob.id
+      league = double(:riot_api_result, successful?: true, data: data)
+      get :show, id: bob.slug
+      expect(Rails.cache.fetch(bob.summoner_id)).to be_present
     end
   end
 
