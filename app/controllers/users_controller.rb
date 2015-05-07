@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def show
     if @user.summoner_id.present?
       if Rails.cache.fetch(@user.summoner_id).nil?
-        result = JSON.parse(open("https://na.api.pvp.net/api/lol/#{@user.region}/v2.5/league/by-summoner/#{@user.summoner_id}/entry?api_key=#{ENV['RIOT_API_KEY']}").read)
+        result = JSON.parse(open("https://#{@user.region}.api.pvp.net/api/lol/#{@user.region}/v2.5/league/by-summoner/#{@user.summoner_id}/entry?api_key=#{ENV['RIOT_API_KEY']}").read)
         Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
           result[@user.summoner_id.to_s].first
         end
