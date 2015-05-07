@@ -26,9 +26,6 @@ class UsersController < ApplicationController
         Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
           summoner_data.response[@user.summoner_id.to_s].first
         end
-      else
-        flash[:danger] = summoner_data.error_message
-        redirect_to search_path
       end
     end
   end
