@@ -20,6 +20,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.summoner_id.present?
+      if Rails.cache.fetch(@user.summoner_id).nil?
+        result = JSON.parse(open("https://na.api.pvp.net/api/lol/#{@user.region}/v2.5/league/by-summoner/#{@user.summoner_id}/entry?api_key=#{ENV['RIOT_API_KEY']}").read)
+        Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
+          result[@user.summoner_id.to_s].first
+        end
+      end
+    end
   end
 
   def edit
@@ -54,7 +62,6 @@ class UsersController < ApplicationController
         current_user.update_column(:summoner_id, account_response[params[:summoner_name]]['id'])
         flash[:success] = 'Your account was linked successfully!'
       else
-
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
       end
     rescue OpenURI::HTTPError => e

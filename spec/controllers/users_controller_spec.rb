@@ -60,6 +60,7 @@ describe UsersController do
 
   describe 'GET edit' do
     let(:bob) { Fabricate(:user) }
+
     it 'finds the user by the slug if the user is the same' do
       set_current_user(bob)
       get :edit, id: bob.slug
