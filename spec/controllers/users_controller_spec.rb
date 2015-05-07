@@ -64,7 +64,7 @@ describe UsersController do
       expect(assigns(:user)).to eq bob
     end
 
-    it 'caches the summoner data if it is not cache yet' do
+    it 'caches the summoner data if it is not cache yet', :vcr do
       bob = Fabricate(:user, summoner_id: 23472148)
       session[:user_id] = bob.id
       league = double(:riot_api_result, successful?: true, data: 'data')
