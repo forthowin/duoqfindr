@@ -2,8 +2,8 @@ deployment:
   production:
     branch: master
     commands:
-      - heroku maintenance:on --app cryptic-spire-1370
-      - heroku pg:backups capture --app cryptic-spire-1370
-      - git push git@heroku.com:cryptic-spire-1370.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app cryptic-spire-1370
-      - heroku maintenance:off --app cryptic-spire-1370
+      - heroku maintenance:on --app leaguelocatr
+      - heroku pg:backups capture --app leaguelocatr
+      - git push git@heroku.com:leaguelocatr.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app leaguelocatr
+      - heroku maintenance:off --app leaguelocatr
