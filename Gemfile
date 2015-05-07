@@ -16,6 +16,7 @@ gem 'mailboxer'
 gem 'nokogiri'
 gem 'haml'
 gem 'figaro'
+gem 'redis-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
