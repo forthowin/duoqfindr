@@ -44,8 +44,9 @@ class UsersController < ApplicationController
 
   def link_account
     begin
-      account_response = JSON.parse(open("https://na.api.pvp.net/api/lol/#{params[:region]}/v1.4/summoner/by-name/#{params[:summoner_name]}?api_key=#{ENV['RIOT_API_KEY']}").read)
-      summoner_id = account_response[params[:summoner_name]]['id']
+      account_response = JSON.parse(open(URI.escape("https://na.api.pvp.net/api/lol/#{params[:region]}/v1.4/summoner/by-name/#{params[:summoner_name]}?api_key=#{ENV['RIOT_API_KEY']}")).read)
+      normalized_summoner_name = params[:summoner_name].downcase.gsub(/\s+/,"")
+      summoner_id = account_response[normalized_summoner_name]['id']
 
       runes_response = JSON.parse(open("https://na.api.pvp.net/api/lol/na/v1.4/summoner/#{summoner_id}/runes?api_key=#{ENV['RIOT_API_KEY']}").read)
 
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
         current_user.update_column(:summoner_id, account_response[params[:summoner_name]]['id'])
         flash[:success] = 'Your account was linked successfully!'
       else
+
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
       end
     rescue OpenURI::HTTPError => e
