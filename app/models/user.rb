@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, length: { minimum: 2 }
   validates :password, length: { minimum: 5 }, presence: true, on: :create
   validates :password, length: { minimum: 5 }, allow_blank: true, on: :update
+  validates :email, presence: true
 
   after_validation :geocode
   before_save :generate_slug!

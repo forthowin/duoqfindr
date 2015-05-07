@@ -5,6 +5,7 @@ feature 'User registers' do
     visit register_path
 
     fill_in 'Username', with: 'l33tgamerz'
+    fill_in 'Email', with: 'l33tgamerz@gaming.com'
     select 'Jungle', from: 'Role'
     select 'Master', from: 'Tier'
     fill_in 'Password', with: 'password'
