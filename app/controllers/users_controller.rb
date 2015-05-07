@@ -20,17 +20,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.summoner_id.present?
-      if Rails.cache.fetch(@user.summoner_id).nil?
-        begin
-          result = JSON.parse(open("https://#{@user.region}.api.pvp.net/api/lol/#{@user.region}/v2.5/league/by-summoner/#{@user.summoner_id}/entry?api_key=#{ENV['RIOT_API_KEY']}").read)
-          Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
-            result[@user.summoner_id.to_s].first
-          end
-        rescue OpenURI::HTTPError => e
-          flash[:danger] = e.message
-          redirect_to search_path
+    if @user.summoner_id.present? && Rails.cache.fetch(@user.summoner_id).nil?
+      summoner_data = RiotApi::League.by_summoner_entry(@user.summoner_id, @user.region)
+      if summoner_data.successful?
+        Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
+          summoner_data.response[@user.summoner_id.to_s].first
         end
+      else
+        flash[:danger] = summoner_data.error_message
+        redirect_to search_path
       end
     end
   end
@@ -56,21 +54,21 @@ class UsersController < ApplicationController
   end
 
   def link_account
-    begin
-      account_response = JSON.parse(open(URI.escape("https://#{params[:region]}.api.pvp.net/api/lol/#{params[:region]}/v1.4/summoner/by-name/#{params[:summoner_name]}?api_key=#{ENV['RIOT_API_KEY']}")).read)
+    summoner_data = RiotApi::Summoner.by_name(params[:summoner_name], params[:region])
+    if summoner_data.successful?
       normalized_summoner_name = params[:summoner_name].downcase.gsub(/\s+/,"")
-      summoner_id = account_response[normalized_summoner_name]['id']
+      summoner_id = summoner_data.response[normalized_summoner_name]['id']
 
-      runes_response = JSON.parse(open("https://#{params[:region]}.api.pvp.net/api/lol/#{params[:region]}/v1.4/summoner/#{summoner_id}/runes?api_key=#{ENV['RIOT_API_KEY']}").read)
+      runes_pages = RiotApi::Summoner.runes(summoner_id, params[:region])
 
-      if current_user.account_token == runes_response[summoner_id.to_s]['pages'].first['name']
-        current_user.update(summoner_id: account_response[params[:summoner_name]]['id'], region: params[:region])
+      if current_user.account_token == runes_pages.response[summoner_id.to_s]['pages'].first['name']
+        current_user.update(summoner_id: summoner_data.response[params[:summoner_name]]['id'], region: params[:region])
         flash[:success] = 'Your account was linked successfully!'
       else
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
       end
-    rescue OpenURI::HTTPError => e
-      flash[:danger] = e.message
+    else
+      flash[:danger] = summoner_data.error_message || runes_pages.error_message
     end
     redirect_to :back
   end

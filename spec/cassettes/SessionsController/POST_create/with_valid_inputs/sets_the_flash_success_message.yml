@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://freegeoip.net/json/123.123.1.1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Date:
+      - Thu, 07 May 2015 19:47:17 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '223'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Method:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Database-Date:
+      - Wed, 08 Apr 2015 16:56:28 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {"ip":"123.123.1.1","country_code":"CN","country_name":"China","region_code":"11","region_name":"Beijing Shi","city":"Beijing","zip_code":"","time_zone":"Asia/Shanghai","latitude":39.929,"longitude":116.388,"metro_code":0}
+    http_version: 
+  recorded_at: Thu, 07 May 2015 19:47:17 GMT
+- request:
+    method: get
+    uri: http://freegeoip.net/json/123.123.1.1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Date:
+      - Thu, 07 May 2015 19:47:17 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '223'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Method:
+      - GET, HEAD, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Database-Date:
+      - Wed, 08 Apr 2015 16:56:22 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        {"ip":"123.123.1.1","country_code":"CN","country_name":"China","region_code":"11","region_name":"Beijing Shi","city":"Beijing","zip_code":"","time_zone":"Asia/Shanghai","latitude":39.929,"longitude":116.388,"metro_code":0}
+    http_version: 
+  recorded_at: Thu, 07 May 2015 19:47:17 GMT
+recorded_with: VCR 2.9.3
