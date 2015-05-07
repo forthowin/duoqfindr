@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.cache_store = :redis_store, ENV[REDISTOGO_URL], { expires_in: 4.hours }
+  config.cache_store = :redis_store, ENV['REDISTOGO_URL'], { expires_in: 4.hours }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
