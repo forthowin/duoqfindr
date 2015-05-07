@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-
-  def about
+    if current_user
+      redirect_to search_path
+    end
   end
 end
