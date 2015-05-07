@@ -2,19 +2,19 @@ require 'rails_helper'
 
 describe SessionsController do
   describe 'POST create' do
-    context 'with valid inputs' do
+    context 'with valid inputs', :vcr do
       let(:bob) { Fabricate(:user, ip_address: '123.123.1.1') }
       before { post :create, username: bob.username, password: bob.password }
 
-      it 'updates the ip address of the user' do
+      it 'updates the ip address of the user', :vcr do
         expect(bob.reload.ip_address).not_to eq('123.123.1.1')
       end
 
-      it 'sets the flash success message' do
+      it 'sets the flash success message', :vcr do
         expect(flash[:success]).to be_present
       end
 
-      it 'redirects to the root path' do
+      it 'redirects to the root path', :vcr do
         expect(response).to redirect_to search_path
       end
     end
@@ -23,11 +23,11 @@ describe SessionsController do
       let(:bob) { Fabricate(:user, ip_address: '123.123.1.1') }
       before { post :create, username: bob.username, password: nil }
 
-      it 'sets the flash danger message' do
+      it 'sets the flash danger message', :vcr do
         expect(flash[:danger]).to be_present
       end
 
-      it 'renders the new page' do
+      it 'renders the new page', :vcr do
         expect(response).to render_template :new
       end
     end
