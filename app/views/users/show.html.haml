@@ -8,6 +8,8 @@
     %li(class="list-group-item")
       Tier: 
       = @user.tier.capitalize
+  -if @user.summoner_id.present?
+    %p Seems like this summoner hasn't played in a while.
 - else
   %h3= Rails.cache.fetch(@user.summoner_id)['entries'].first['playerOrTeamName']
 
