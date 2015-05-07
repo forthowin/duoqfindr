@@ -1,13 +1,37 @@
 = render '/shared/content_title', title: "#{@user.username}'s Profile"
 
-%ul(class="list-group")
+- if Rails.cache.fetch(@user.summoner_id).nil?
+  %ul(class="list-group")
+    %li(class="list-group-item")
+      Main Role: 
+      = @user.role.capitalize
+    %li(class="list-group-item")
+      Tier: 
+      = @user.tier.capitalize
+- else
+  %h3= Rails.cache.fetch(@user.summoner_id)['entries'].first['playerOrTeamName']
 
-  %li(class="list-group-item")
-    Main Role: 
-    = @user.role.capitalize
-  %li(class="list-group-item")
-    Tier: 
-    = @user.tier.capitalize
+  %ul(class='list-group')
+    %li(class="list-group-item")
+      Division Name: 
+      = Rails.cache.fetch(@user.summoner_id)['name']
+    %li(class="list-group-item")
+      Tier: 
+      = Rails.cache.fetch(@user.summoner_id)['tier']
+    %li(class="list-group-item")
+      Division:
+      = Rails.cache.fetch(@user.summoner_id)['entries'].first['division']
+    %li(class="list-group-item")
+      League Points: 
+      = Rails.cache.fetch(@user.summoner_id)['entries'].first['leaguePoints']
+    %li(class="list-group-item")
+      Wins: 
+      = Rails.cache.fetch(@user.summoner_id)['entries'].first['wins']
+    %li(class="list-group-item")
+      Losses: 
+      = Rails.cache.fetch(@user.summoner_id)['entries'].first['losses']
+
+
 %hr
 
 %h5
