@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: [:edit, :update, :link_account, :token]
+  before_action :require_user, only: [:edit, :update, :link_account, :token, :show]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :require_same_user, only: [:edit, :update]
 
