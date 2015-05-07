@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User views another user profile' do
-  scenario 'with a linked account' do
+  scenario 'with a linked account', :vcr do
     bob = Fabricate(:user, latitude: 0, longitude: 0)
     jim = Fabricate(:user, latitude: 0, longitude: 0, summoner_id: 23472148, region: 'na')
 
@@ -18,7 +18,7 @@ feature 'User views another user profile' do
     expect(page).not_to have_content 'Main Role'
   end
 
-  scenario 'with a non-linked account' do
+  scenario 'with a non-linked account', :vcr do
     bob = Fabricate(:user, latitude: 0, longitude: 0)
     jim = Fabricate(:user, latitude: 0, longitude: 0, summoner_id: 23472148, region: 'na')
     

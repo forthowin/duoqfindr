@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'User verify their league account and update their profile', js: true do
-  scenario 'with correct info' do
+feature 'User verify their league account and update their profile' do
+  scenario 'with correct info', {js: true, vcr: true} do
     bob = Fabricate(:user)
     sign_in(bob)
 
@@ -21,7 +21,7 @@ feature 'User verify their league account and update their profile', js: true do
     expect(page).not_to have_content 'Generate Token'
   end
 
-  scenario 'with mismatch token' do
+  scenario 'with mismatch token', {js: true, vcr: true} do
     bob = Fabricate(:user)
     sign_in(bob)
 
@@ -36,7 +36,7 @@ feature 'User verify their league account and update their profile', js: true do
     expect(page).to have_content 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
   end
 
-  scenario 'with invalid summoner name' do
+  scenario 'with invalid summoner name', {js: true, vcr: true} do
     bob = Fabricate(:user)
     sign_in(bob)
 
@@ -47,7 +47,7 @@ feature 'User verify their league account and update their profile', js: true do
     fill_in 'Summoner Name', with: 'forthowingggggg'
     select 'na', from: '_region'
     click_button 'Verify Account'
-
+    
     expect(page).to have_content '404 Not Found'
   end
 end
