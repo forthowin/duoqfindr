@@ -65,9 +65,8 @@ describe UsersController do
     end
 
     it 'caches the summoner data if it is not cache yet', :vcr do
-      bob = Fabricate(:user, summoner_id: 23472148)
+      bob = Fabricate(:user, summoner_id: 23472148, region: 'na')
       session[:user_id] = bob.id
-      league = double(:riot_api_result, successful?: true, data: 'data')
       get :show, id: bob.slug
       expect(Rails.cache.fetch(bob.summoner_id)).to be_present
     end
