@@ -28,7 +28,7 @@ describe SearchesController do
       expect(assigns(:users)).to eq([tim, jim])
     end
 
-    it 'sets the flash info message when there are no one was found' do
+    it 'sets the flash info message when no one was found' do
       bob = Fabricate(:user, latitude: 0, longitude: 0)
       set_current_user(bob)
       post :update, radius: '100'
