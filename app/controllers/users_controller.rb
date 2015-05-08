@@ -59,7 +59,7 @@ class UsersController < ApplicationController
       rune_pages = RiotApi::Summoner.runes(summoner_id, params[:region])
 
       if current_user.account_token == rune_pages.data[summoner_id.to_s]['pages'].first['name']
-        current_user.update(summoner_id: summoner.data[params[:summoner_name]]['id'], region: params[:region])
+        current_user.update(summoner_id: summoner.data[normalized_summoner_name]['id'], region: params[:region])
         flash[:success] = 'Your account was linked successfully!'
       else
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
