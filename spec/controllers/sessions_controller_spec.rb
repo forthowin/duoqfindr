@@ -34,7 +34,7 @@ describe SessionsController do
 
     context 'with a logged in user' do
       before do
-        session[:user_id] = Fabricate(:user).id
+        set_current_user
         post :create, username: 'bob', password: 'password'
       end
 
@@ -76,7 +76,7 @@ describe SessionsController do
   describe 'GET new' do
     context 'with a logged in user' do
       before do
-        session[:user_id] = Fabricate(:user).id
+        set_current_user
         get :new
       end
 

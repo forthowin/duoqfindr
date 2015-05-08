@@ -59,14 +59,14 @@ describe UsersController do
 
     it 'finds the user by the slug' do
       bob = Fabricate(:user)
-      session[:user_id] = bob.id
+      set_current_user(bob)
       get :show, id: bob.slug
       expect(assigns(:user)).to eq bob
     end
 
     it 'caches the summoner data if it is not cache yet', :vcr do
       bob = Fabricate(:user, summoner_id: 23472148, region: 'na')
-      session[:user_id] = bob.id
+      set_current_user(bob)
       get :show, id: bob.slug
       expect(Rails.cache.fetch(bob.summoner_id)).to be_present
     end
