@@ -17,6 +17,7 @@ gem 'nokogiri'
 gem 'haml'
 gem 'figaro'
 gem 'redis-rails'
+gem 'newrelic_rpm'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
