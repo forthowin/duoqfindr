@@ -4,4 +4,6 @@ Fabricator(:user) do
   password 'password'
   role 'Top'
   tier 'Diamond'
+  longitude 0
+  latitude 0
 end
