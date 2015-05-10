@@ -15,7 +15,7 @@
     - @mailbox.inbox.each do |conv|
       %tr
         %td= link_to conv.subject, conversation_path(conv)
-        %td= link_to conv.originator.username,  user_path(conv.last_sender)
+        %td= link_to (conv.participants - [current_user]).first.username,  user_path(conv.last_sender)
         %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"
 - elsif params[:tab] == 'outbox'
   %table(class='table table-striped')
@@ -26,5 +26,6 @@
     - @mailbox.sentbox.each do |conv|
       %tr
         %td= link_to conv.subject, conversation_path(conv)
-        %td= link_to conv.recipients.last.username,  user_path(conv.recipients.first)
+        -binding.pry
+        %td= link_to (conv.participants - [current_user]).first.username,  user_path(conv.recipients.first)
         %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"
