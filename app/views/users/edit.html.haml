@@ -23,7 +23,7 @@
   = form_tag(token_path, remote: true) do
     = submit_tag 'Generate Token', class: 'btn btn-primary'
 
-  %p#token= ''
+  %p#token
   %br
 
   = bootstrap_form_tag(url: link_account_path) do |f|
