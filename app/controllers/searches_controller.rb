@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  MIN_RADIUS = 1
+  MIN_RADIUS = 10
   MAX_RADIUS = 150
 
   before_action :require_user
