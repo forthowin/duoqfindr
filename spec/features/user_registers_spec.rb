@@ -9,6 +9,7 @@ feature 'User registers' do
     select 'Jungle', from: 'Role'
     select 'Master', from: 'Tier'
     fill_in 'Password', with: 'password'
+    check('I acknowledge that LeagueLocatr will be using my IP Address to determine my location')
     click_button 'Register'
 
     expect(page).to have_content 'l33tgamerz'
