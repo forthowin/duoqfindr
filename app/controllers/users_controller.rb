@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.ip_address = request.ip
-    if @user.save
+    if params[:user][:terms] == '0'
+      flash.now[:danger] = 'You must check the checkbox.'
+      render :new
+    elsif @user.save
       session[:user_id] = @user.id
       flash[:success] = 'You have successfully registered.'
       redirect_to edit_user_path @user
@@ -77,7 +80,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :role, :tier, :password, :email)
+    params.require(:user).permit(:username, :role, :tier, :password, :email, :terms)
   end
 
   def require_same_user
