@@ -18,6 +18,7 @@ gem 'haml'
 gem 'figaro'
 gem 'redis-rails'
 gem 'newrelic_rpm'
+gem 'will_paginate', '~> 3.0.6'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

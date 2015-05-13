@@ -1,12 +1,13 @@
 = render '/shared/content_title', title: 'Search for players near you!'
 
-= bootstrap_form_tag url: '/search' do |f|
+= bootstrap_form_tag url: '/search', method: 'get' do |f|
   .col-sm-2
     = f.text_field :radius, hide_label: true, placeholder: "#{SearchesController::MIN_RADIUS}-#{SearchesController::MAX_RADIUS} mile radius"
   = f.primary 'Search'
 %hr
 
 - if @users.present?
+  = will_paginate @users
   %table.table.table-striped
     %tr
       %td Name

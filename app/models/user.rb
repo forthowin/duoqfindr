@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   after_validation :geocode
   before_save :generate_slug!
 
+  self.per_page = 10
+
   def to_param
     self.slug
   end
