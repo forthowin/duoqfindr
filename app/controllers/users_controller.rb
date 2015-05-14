@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     if @user.summoner_id.present? && Rails.cache.fetch(@user.summoner_id).nil?
       league = RiotApi::League.by_summoner_entry(@user.summoner_id, @user.region)
       if league.successful?
+        @user.update_column(:tier, league.data[@user.summoner_id.to_s].first['tier'])
         Rails.cache.fetch(@user.summoner_id, expires_in: 12.hours) do
           league.data[@user.summoner_id.to_s].first
         end
@@ -64,13 +65,15 @@ class UsersController < ApplicationController
       if current_user.account_token == rune_pages.data[summoner_id.to_s]['pages'].first['name']
         current_user.update(summoner_id: summoner.data[normalized_summoner_name]['id'], region: params[:region])
         flash[:success] = 'Your account was linked successfully!'
+        redirect_to user_path current_user
       else
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
+        redirect_to :back
       end
     else
       flash[:danger] = summoner.error_message || rune_pages.error_message
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   private
