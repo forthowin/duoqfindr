@@ -8,6 +8,9 @@
     %li(class="list-group-item")
       Tier: 
       = @user.tier.capitalize
+    %li(class="list-group-item")
+      Bio:
+      = @user.bio
   -if @user.summoner_id.present?
     %p Seems like this summoner hasn't played in a while.
 - else
@@ -32,6 +35,9 @@
     %li(class="list-group-item")
       Losses: 
       = Rails.cache.fetch(@user.summoner_id)['entries'].first['losses']
+    %li(class="list-group-item")
+      Bio:
+      = @user.bio
 
 - unless @user == current_user
   %hr
