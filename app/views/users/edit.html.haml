@@ -6,7 +6,10 @@
   = bootstrap_form_for @user do |f|
     .row
       .col-sm-4
-        = f.text_area :bio, rows: 5, placeholder: "Something interesting about yourself, what you're looking for..."
+        = f.select :role, [['Top', 'top'], ['Mid', 'mid'], ['Jungle', 'jungle'], ['ADC', 'adc'], ['Support', 'support']]
+    .row
+      .col-sm-4
+        = f.text_area :bio, rows: 5, placeholder: "Something interesting about yourself, what other roles you can play...."
     .row
       .col-sm-4
         = f.email_field :email
