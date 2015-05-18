@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507080637) do
+ActiveRecord::Schema.define(version: 20150514022023) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20150507080637) do
     t.integer "summoner_id"
     t.string  "region"
     t.string  "email"
+    t.integer "terms"
+    t.string  "bio"
   end
 
 end

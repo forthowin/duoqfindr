@@ -14,8 +14,12 @@
       %td Time
     - @mailbox.inbox.each do |conv|
       %tr
-        %td= link_to conv.subject, conversation_path(conv)
-        %td= link_to conv.originator.username,  user_path(conv.last_sender)
+        - if conv.is_unread?(current_user)
+          %td
+            %strong= link_to "#{conv.subject}: #{conv.last_message.body[0,20]}...", conversation_path(conv)
+        - else
+          %td= link_to "#{conv.subject}: #{conv.last_message.body[0,20]}...", conversation_path(conv)
+        %td= link_to (conv.participants - [current_user]).first.username,  user_path((conv.participants - [current_user]).first)
         %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"
 - elsif params[:tab] == 'outbox'
   %table(class='table table-striped')
@@ -25,6 +29,6 @@
       %td Time
     - @mailbox.sentbox.each do |conv|
       %tr
-        %td= link_to conv.subject, conversation_path(conv)
-        %td= link_to conv.recipients.last.username,  user_path(conv.recipients.first)
+        %td= link_to "#{conv.subject}: #{conv.last_message.body[0,20]}...", conversation_path(conv)
+        %td= link_to (conv.participants - [current_user]).first.username,  user_path((conv.participants - [current_user]).first)
         %td= distance_of_time_in_words(Time.now, conv.last_message.created_at) + " ago"

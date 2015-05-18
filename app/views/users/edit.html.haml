@@ -6,6 +6,9 @@
   = bootstrap_form_for @user do |f|
     .row
       .col-sm-4
+        = f.text_area :bio, rows: 5, placeholder: "Something interesting about yourself, what you're looking for..."
+    .row
+      .col-sm-4
         = f.email_field :email
     .row
       .col-sm-4
@@ -23,7 +26,7 @@
   = form_tag(token_path, remote: true) do
     = submit_tag 'Generate Token', class: 'btn btn-primary'
 
-  %p#token= ''
+  %p#token
   %br
 
   = bootstrap_form_tag(url: link_account_path) do |f|
@@ -44,6 +47,9 @@
       .col-sm-2
         = f.select :role, [['Top', 'top'], ['Mid', 'mid'], ['Jungle', 'jungle'], ['ADC', 'adc'], ['Support', 'support']]
         = f.select :tier, [['Unranked', 'unranked'], ['Bronze', 'bronze'], ['Silver', 'silver'], ['Gold', 'gold'], ['Platinum', 'platinum'], ['Diamond', 'diamond'], ['Master', 'master'], ['Challenger', 'challenger']]
+    .row
+      .col-sm-4
+        = f.text_area :bio, rows: 5, placeholder: "Something interesting about yourself, what you're looking for..."
     .row
       .col-sm-4
         = f.email_field :email

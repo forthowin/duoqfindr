@@ -27,22 +27,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 19:43:40 GMT
+      - Thu, 14 May 2015 06:03:11 GMT
       Server:
       - Jetty(9.1.1.v20140108)
       Vary:
       - Accept-Encoding, User-Agent
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTlMYHgwFW1I9SUkaHwBKUU4HHwdWVgQDAlpXVU4dUxRAAVwFVwYHCwNVVwpXAVMBWEQ+
-      Content-Length:
-      - '126'
+      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTlMYHgwFW1I9SUkaHwBKUU4HHwdWVQEGAFVQT08BThoHXAEMUFZTWARSWQEAAQEGQzs=
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"forthowin":{"id":38060496,"name":"ForThoWin","profileIconId":588,"summonerLevel":30,"revisionDate":1414588950000}}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 19:43:40 GMT
+  recorded_at: Thu, 14 May 2015 06:03:11 GMT
 - request:
     method: get
     uri: https://na.api.pvp.net/api/lol/na/v1.4/summoner/38060496/runes?api_key=539404a3-2abe-4d06-9da2-ecb84c19498b
@@ -70,13 +70,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 19:43:40 GMT
+      - Thu, 14 May 2015 06:03:12 GMT
       Server:
       - Jetty(9.1.1.v20140108)
       Vary:
       - Accept-Encoding, User-Agent
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTkIUXg8LWFITLwdLbx9OQ04HHwdKVB8GC1NQUFIIVRRPCRQWUwJcCwJVBVZQXVRTBVBVWRFt
+      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTkIUXg8LWFITLwdLbx9OQ04HHwdKVB8GC1BRU1QCWhRPCRQWBwJSCQMIVQUAXAIGVAJbGm4=
       Transfer-Encoding:
       - chunked
       Connection:
@@ -92,5 +92,46 @@ http_interactions:
         Page 7","current":false,"slots":[{"runeSlotId":1,"runeId":5402},{"runeSlotId":2,"runeId":5402},{"runeSlotId":3,"runeId":5402},{"runeSlotId":4,"runeId":5402},{"runeSlotId":5,"runeId":5402},{"runeSlotId":6,"runeId":5402},{"runeSlotId":7,"runeId":5402},{"runeSlotId":8,"runeId":5402},{"runeSlotId":9,"runeId":5402},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5290},{"runeSlotId":20,"runeId":5290},{"runeSlotId":21,"runeId":5290},{"runeSlotId":22,"runeId":5290},{"runeSlotId":23,"runeId":5290},{"runeSlotId":24,"runeId":5290},{"runeSlotId":25,"runeId":5290},{"runeSlotId":26,"runeId":5290},{"runeSlotId":27,"runeId":5290},{"runeSlotId":28,"runeId":5365},{"runeSlotId":29,"runeId":5365},{"runeSlotId":30,"runeId":5365}]},{"id":63666222,"name":"Rune
         Page 8","current":false,"slots":[{"runeSlotId":1,"runeId":5273},{"runeSlotId":2,"runeId":5273},{"runeSlotId":3,"runeId":5273},{"runeSlotId":4,"runeId":5273},{"runeSlotId":5,"runeId":5273},{"runeSlotId":6,"runeId":5273},{"runeSlotId":7,"runeId":5273},{"runeSlotId":8,"runeId":5273},{"runeSlotId":9,"runeId":5273},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5290},{"runeSlotId":20,"runeId":5290},{"runeSlotId":21,"runeId":5290},{"runeSlotId":22,"runeId":5290},{"runeSlotId":23,"runeId":5290},{"runeSlotId":24,"runeId":5290},{"runeSlotId":25,"runeId":5290},{"runeSlotId":26,"runeId":5290},{"runeSlotId":27,"runeId":5290},{"runeSlotId":28,"runeId":5365},{"runeSlotId":29,"runeId":5365},{"runeSlotId":30,"runeId":5365}]}]}}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 19:43:40 GMT
+  recorded_at: Thu, 14 May 2015 06:03:12 GMT
+- request:
+    method: get
+    uri: https://na.api.pvp.net/api/lol/na/v2.5/league/by-summoner/38060496/entry?api_key=539404a3-2abe-4d06-9da2-ecb84c19498b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 14 May 2015 06:03:12 GMT
+      Server:
+      - Jetty(9.1.1.v20140108)
+      X-Newrelic-App-Data:
+      - PxQFWFFSDwQTVVZSBwAGVkYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwgDX1cIBwdOS1JOElYBVQ8BBARXVAtSVVUDVEZr
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 14 May 2015 06:03:12 GMT
 recorded_with: VCR 2.9.3

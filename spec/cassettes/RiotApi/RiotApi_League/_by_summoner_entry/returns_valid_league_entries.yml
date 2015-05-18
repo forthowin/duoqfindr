@@ -27,21 +27,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 21:40:14 GMT
+      - Thu, 14 May 2015 06:03:28 GMT
       Server:
       - Jetty(9.1.1.v20140108)
       Vary:
       - Accept-Encoding
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVZSBwAGVkYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBgADVFMDAAFOS1JOElUPWgleVwsGUAhWBARRVFEUag==
+      - PxQFWFFSDwQTVVZSBwAGVkYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOA0dYa0kIXlpvTR0RB1cLVwxFZBtEAUsMPR4NVgMDQ1I9SQFBHkMRDA9YX1IUOB5NQBcLDg1eB0orXEtJbhwAVxVDGBNKI3NjSERPCB0ASFFMBwgOVVEHGh5TSkFTBVYOAwgIBAtXVgoDVwJXQDk=
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"23472148":[{"name":"Jarvan IV''s Elementalists","tier":"PLATINUM","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"23472148","playerOrTeamName":"all3nvan","division":"IV","leaguePoints":87,"wins":78,"losses":88,"isHotStreak":true,"isVeteran":true,"isFreshBlood":false,"isInactive":false}]},{"name":"Wukong''s
-        Lancers","tier":"GOLD","queue":"RANKED_TEAM_5x5","entries":[{"playerOrTeamId":"TEAM-7b857620-0190-11e4-852d-782bcb4d0bb2","playerOrTeamName":"LOMOBOYSSS","division":"V","leaguePoints":0,"wins":3,"losses":4,"isHotStreak":false,"isVeteran":false,"isFreshBlood":false,"isInactive":true}]}]}'
+      string: '{"23472148":[{"name":"Jarvan IV''s Elementalists","tier":"PLATINUM","queue":"RANKED_SOLO_5x5","entries":[{"playerOrTeamId":"23472148","playerOrTeamName":"all3nvan","division":"IV","leaguePoints":79,"wins":79,"losses":89,"isHotStreak":false,"isVeteran":true,"isFreshBlood":false,"isInactive":false,"miniSeries":{"target":2,"wins":0,"losses":1,"progress":"LNN"}}]},{"name":"Wukong''s
+        Lancers","tier":"GOLD","queue":"RANKED_TEAM_5x5","entries":[{"playerOrTeamId":"TEAM-7b857620-0190-11e4-852d-782bcb4d0bb2","playerOrTeamName":"LOMOBOYSSS","division":"V","leaguePoints":0,"wins":3,"losses":5,"isHotStreak":false,"isVeteran":false,"isFreshBlood":false,"isInactive":false}]}]}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 21:40:14 GMT
+  recorded_at: Thu, 14 May 2015 06:03:28 GMT
 recorded_with: VCR 2.9.3

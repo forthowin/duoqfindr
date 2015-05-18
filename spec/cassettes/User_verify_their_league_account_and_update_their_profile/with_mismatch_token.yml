@@ -27,22 +27,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 19:43:45 GMT
+      - Thu, 14 May 2015 06:03:17 GMT
       Server:
       - Jetty(9.1.1.v20140108)
       Vary:
       - Accept-Encoding, User-Agent
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTlMYHgwFW1I9SUkaHwBKUU4OHwJWXQkOdk9ST08BThoGDAsNBVFRCQRXUwoGVw5WQzs=
-      Transfer-Encoding:
-      - chunked
+      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTlMYHgwFW1I9SUkaHwBKUU4HHwdWVQEHBVJTT08BThpWCwxSBVcDXFcJUwBSVANTQzs=
+      Content-Length:
+      - '126'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"forthowin":{"id":38060496,"name":"ForThoWin","profileIconId":588,"summonerLevel":30,"revisionDate":1414588950000}}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 19:43:45 GMT
+  recorded_at: Thu, 14 May 2015 06:03:17 GMT
 - request:
     method: get
     uri: https://na.api.pvp.net/api/lol/na/v1.4/summoner/38060496/runes?api_key=539404a3-2abe-4d06-9da2-ecb84c19498b
@@ -70,15 +70,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 07 May 2015 19:43:45 GMT
+      - Thu, 14 May 2015 06:03:17 GMT
       Server:
       - Jetty(9.1.1.v20140108)
       Vary:
       - Accept-Encoding, User-Agent
       X-Newrelic-App-Data:
-      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTkIUXg8LWFITLwdLbx9OQ04HHwdKVB8GC1BUUVcAWgxOFQkYEAVQC1FTBAJUVVMGUwVTAFISOQ==
-      Transfer-Encoding:
-      - chunked
+      - PxQFWFFSDwQTVVdUBAgAVkYdFGQHBDcQUQxLA1tMXV1dORYzVBBGBxdCdhUSEVFRRRAEPhhQRw84HlpcDjpMDFE+FxQJFgBuHE9lTkIUXg8LWFITLwdLbx9OQ04HHwdKVB8GC1BSVFcHVBRPCRQWUARdWgQJU1ZVVQIBVgcAWhFt
+      Content-Length:
+      - '478'
       Connection:
       - keep-alive
     body:
@@ -92,5 +92,5 @@ http_interactions:
         Page 7","current":false,"slots":[{"runeSlotId":1,"runeId":5402},{"runeSlotId":2,"runeId":5402},{"runeSlotId":3,"runeId":5402},{"runeSlotId":4,"runeId":5402},{"runeSlotId":5,"runeId":5402},{"runeSlotId":6,"runeId":5402},{"runeSlotId":7,"runeId":5402},{"runeSlotId":8,"runeId":5402},{"runeSlotId":9,"runeId":5402},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5290},{"runeSlotId":20,"runeId":5290},{"runeSlotId":21,"runeId":5290},{"runeSlotId":22,"runeId":5290},{"runeSlotId":23,"runeId":5290},{"runeSlotId":24,"runeId":5290},{"runeSlotId":25,"runeId":5290},{"runeSlotId":26,"runeId":5290},{"runeSlotId":27,"runeId":5290},{"runeSlotId":28,"runeId":5365},{"runeSlotId":29,"runeId":5365},{"runeSlotId":30,"runeId":5365}]},{"id":63666222,"name":"Rune
         Page 8","current":false,"slots":[{"runeSlotId":1,"runeId":5273},{"runeSlotId":2,"runeId":5273},{"runeSlotId":3,"runeId":5273},{"runeSlotId":4,"runeId":5273},{"runeSlotId":5,"runeId":5273},{"runeSlotId":6,"runeId":5273},{"runeSlotId":7,"runeId":5273},{"runeSlotId":8,"runeId":5273},{"runeSlotId":9,"runeId":5273},{"runeSlotId":10,"runeId":5317},{"runeSlotId":11,"runeId":5317},{"runeSlotId":12,"runeId":5317},{"runeSlotId":13,"runeId":5317},{"runeSlotId":14,"runeId":5317},{"runeSlotId":15,"runeId":5317},{"runeSlotId":16,"runeId":5317},{"runeSlotId":17,"runeId":5317},{"runeSlotId":18,"runeId":5317},{"runeSlotId":19,"runeId":5290},{"runeSlotId":20,"runeId":5290},{"runeSlotId":21,"runeId":5290},{"runeSlotId":22,"runeId":5290},{"runeSlotId":23,"runeId":5290},{"runeSlotId":24,"runeId":5290},{"runeSlotId":25,"runeId":5290},{"runeSlotId":26,"runeId":5290},{"runeSlotId":27,"runeId":5290},{"runeSlotId":28,"runeId":5365},{"runeSlotId":29,"runeId":5365},{"runeSlotId":30,"runeId":5365}]}]}}'
     http_version: 
-  recorded_at: Thu, 07 May 2015 19:43:45 GMT
+  recorded_at: Thu, 14 May 2015 06:03:17 GMT
 recorded_with: VCR 2.9.3
