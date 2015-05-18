@@ -12,7 +12,7 @@
       Bio:
       = @user.bio
   -if @user.summoner_id.present?
-    %p Seems like this summoner hasn't played in a while.
+    %p Seems like this summoner isn't level 30 or has not played rank in a while.
 - else
   %h3= Rails.cache.fetch(@user.summoner_id)['entries'].first['playerOrTeamName']
 
