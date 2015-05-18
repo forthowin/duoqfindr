@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = 'Your have successfully updated your profile.'
-      redirect_to user_path(@user)
+      redirect_to edit_user_path(@user)
     else
       render :edit
     end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       if current_user.account_token == rune_pages.data[summoner_id.to_s]['pages'].first['name']
         current_user.update(summoner_id: summoner.data[normalized_summoner_name]['id'], region: params[:region])
         flash[:success] = 'Your account was linked successfully!'
-        redirect_to user_path current_user
+        redirect_to :back
       else
         flash[:danger] = 'Token did not match or runepage has not been updated yet. Verify account again in a bit.'
         redirect_to :back

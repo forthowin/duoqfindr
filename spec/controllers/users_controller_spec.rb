@@ -111,8 +111,8 @@ describe UsersController do
         expect(flash[:success]).to be_present
       end
 
-      it 'redirects to the show page' do
-        expect(response).to redirect_to user_path bob
+      it 'redirects to the user edit page' do
+        expect(response).to redirect_to edit_user_path bob
       end
     end
 
