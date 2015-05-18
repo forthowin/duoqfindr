@@ -148,4 +148,24 @@ describe UsersController do
       end
     end
   end
+
+  describe 'POST unlink_account' do
+    let(:bob) { Fabricate(:user, summoner_id: 23472148, region: 'na') }
+    before do
+      set_current_user(bob)
+      post :unlink_account
+    end
+
+    it 'sets the user summoner_id to nil' do
+      expect(bob.reload.summoner_id).to be_nil
+    end
+
+    it 'sets the flash success message' do
+      expect(flash[:success]).to be_present
+    end
+
+    it 'redirects to the edit user path' do
+      expect(response).to redirect_to edit_user_path bob
+    end
+  end
 end

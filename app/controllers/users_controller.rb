@@ -76,6 +76,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def unlink_account
+    current_user.update_column(:summoner_id, nil)
+    flash[:success] = 'You have successfully unlinked your League account.'
+    redirect_to edit_user_path current_user
+  end
   private
 
   def set_user

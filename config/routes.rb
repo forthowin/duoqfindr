@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   post '/token', to: 'users#token'
   post '/link-account', to: 'users#link_account'
+  post '/unlink-account', to: 'users#unlink_account'
 
   resources :users, except: [:index, :destroy]
   resources :messages, only: [:create] do

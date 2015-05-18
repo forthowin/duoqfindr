@@ -17,6 +17,10 @@
       .col-sm-4
         = f.password_field :password
         = f.primary 'Update'
+
+  %br
+  = form_tag(unlink_account_path) do
+    = submit_tag 'Unlink Summoner Account', class: 'btn btn-warning'
 - else
   %p Take a minute to link your League of Legends account to update your profile with winrates, kda, etc.
   %ol
