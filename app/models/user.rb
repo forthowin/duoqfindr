@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
 
   has_secure_password validations: false
 
-  validates :username, presence: true, uniqueness: true, length: { minimum: 2 }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 2 }
   validates :password, length: { minimum: 5 }, presence: true, on: :create
   validates :password, length: { minimum: 5 }, allow_blank: true, on: :update
-  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, uniqueness: { case_sensitive: false }
 
   after_validation :geocode
   before_save :generate_slug!
