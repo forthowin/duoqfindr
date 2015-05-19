@@ -8,8 +8,15 @@ describe User do
   it { should validate_presence_of(:password).on(:create) }
   it { should allow_value("", nil).for(:password).on(:update) }
   it { should have_secure_password }
-  it { should validate_presence_of(:email) }
-  it { should validate_uniqueness_of(:email) }
+  it { should validate_presence_of :email }
+
+  describe 'email validation' do
+    it 'should not create a new user with the same email case insensitive' do
+      Fabricate(:user, email: 'example@gmail.com')
+      User.create(username: 'bob', email: 'Example@gmail.com', password: 'password')
+      expect(User.count).to eq(1)
+    end
+  end
 
 
   describe '#generate_token!' do
