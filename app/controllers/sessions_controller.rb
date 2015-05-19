@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by username: params[:username]
+    user = User.where('lower(username) = ?', params[:username].downcase).first
 
     if user and user.authenticate(params[:password])
       if user.ip_address != request.ip #update ip address
