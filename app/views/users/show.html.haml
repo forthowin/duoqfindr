@@ -10,7 +10,7 @@
       = @user.tier.capitalize
     %li(class="list-group-item")
       Bio:
-      = @user.bio
+      = simple_format @user.bio
   -if @user.summoner_id.present?
     %p Seems like this summoner isn't level 30 or has not played rank in a while.
 - else
@@ -37,7 +37,7 @@
       = Rails.cache.fetch(@user.summoner_id)['entries'].first['losses']
     %li(class="list-group-item")
       Bio:
-      = @user.bio
+      = simple_format @user.bio
 
 - unless @user == current_user
   %hr
