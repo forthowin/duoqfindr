@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/token', to: 'users#token'
   post '/link-account', to: 'users#link_account'
   post '/unlink-account', to: 'users#unlink_account'
+  get '/forgot-password-confirmation', to: 'forgot_passwords#confirm'
+  get '/invalid-token', to: 'static_pages#invalid_token'
 
   resources :users, except: [:index, :destroy]
   resources :messages, only: [:create] do
@@ -18,5 +20,6 @@ Rails.application.routes.draw do
     end
   end
   resources :conversations, only: [:index, :show]
-
+  resources :forgot_passwords, only: [:new, :create]
+  resources :reset_passwords, only: [:show, :create]
 end

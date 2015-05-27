@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     update_column(:account_token, SecureRandom.hex(5))
   end
 
+  def generate_token
+    SecureRandom.urlsafe_base64
+  end
+
   def generate_slug!
     the_slug = to_slug(self.username)
     slug = User.find_by slug: the_slug

@@ -1,0 +1,8 @@
+= render '/shared/content_title', title: 'Reset Your Password'
+
+= bootstrap_form_tag url: reset_passwords_path do |f|
+  .form-group
+    .col-sm-6
+      = f.password_field :password
+      = f.hidden_field :token, value: @token
+      = f.primary 'Reset Password'

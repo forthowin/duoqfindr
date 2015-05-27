@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'redis-rails'
 gem 'newrelic_rpm'
 gem 'will_paginate', '~> 3.0.6'
+gem 'sidekiq'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -37,6 +38,10 @@ group :development, :test do
   gem 'capybara'
 end
 
+group :development do
+  gem "letter_opener"
+end
+
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
@@ -44,6 +49,7 @@ group :test do
   gem 'launchy'
   gem 'vcr'
   gem 'webmock'
+  gem 'capybara-email'
 end
 
 group :production do
