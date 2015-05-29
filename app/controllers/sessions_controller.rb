@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.where('lower(username) = ?', params[:username].downcase).first
 
     if user and user.authenticate(params[:password])
-      update_ip_address
+      update_ip_address(user)
       session[:user_id] = user.id
       flash[:success] = "You have successfully log in"
       redirect_to search_path
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def update_ip_address
+  def update_ip_address(user)
     if user.ip_address != request.ip
       user.update_column(:ip_address, request.ip)
     end
