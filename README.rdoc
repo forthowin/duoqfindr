@@ -1,1 +1,3 @@
 Wish you had more friends? Look no further. DuoQFindr helps you search for people who plays League of Legends in your area.
+
+To get started, sign up. Then edit your profile with relevant game information. If the user wish, they can link their league account, which will call the Riot API to pull down relevant game statistics to automatically update their profile. Users can then start searching for nearby players. Searching is done by getting the user's IP address and converting that into longitude and latitude to calculate the distance between other users. If a player is found, they can view their profile and then start sending messages to exchange information.
