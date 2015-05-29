@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user, only: [:edit, :update, :link_account, :token, :show]
+  before_action :require_user, only: [:edit, :update, :link_account, :token, :show, :unlink_account]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :require_same_user, only: [:edit, :update]
 
@@ -81,6 +81,7 @@ class UsersController < ApplicationController
     flash[:success] = 'You have successfully unlinked your League account.'
     redirect_to edit_user_path current_user
   end
+  
   private
 
   def set_user
