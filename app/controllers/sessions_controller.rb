@@ -9,10 +9,7 @@ class SessionsController < ApplicationController
     user = User.where('lower(username) = ?', params[:username].downcase).first
 
     if user and user.authenticate(params[:password])
-      if user.ip_address != request.ip #update ip address
-        user.ip_address = request.ip
-        user.save
-      end
+      update_ip_address
       session[:user_id] = user.id
       flash[:success] = "You have successfully log in"
       redirect_to search_path
@@ -34,6 +31,12 @@ class SessionsController < ApplicationController
     if current_user
       flash[:info] = 'You are already logged in'
       redirect_to search_path
+    end
+  end
+
+  def update_ip_address
+    if user.ip_address != request.ip
+      user.update_column(:ip_address, request.ip)
     end
   end
 end
