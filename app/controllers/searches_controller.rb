@@ -5,7 +5,6 @@ class SearchesController < ApplicationController
   before_action :require_user
 
   def show
-    binding.pry
     if params[:radius].to_i.between?(MIN_RADIUS, MAX_RADIUS)
       @users = current_user.nearbys(params[:radius].to_i).paginate(:page => params[:page])
       flash.now[:info] = 'No match found. Try again later when more players sign up.' unless @users.present?
